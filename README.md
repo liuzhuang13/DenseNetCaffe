@@ -3,7 +3,7 @@ This repository contains the caffe version code for the paper [Densely Connected
 
 For a brief introduction of DenseNet, see our original [Torch implementation](https://github.com/liuzhuang13/DenseNet).
 
-##Disclaimer
+##Note
 This code is not the code we use to obtain the results in the original paper, the details (such as input preprocessing, data augmentation, training epochs) may be different. To reproduce the results reported in our paper, see our original [Torch implementation](https://github.com/liuzhuang13/DenseNet#introduction) .
 
 Also this code is not thoroughly tested yet, any corrections or discussions are welcome. 
