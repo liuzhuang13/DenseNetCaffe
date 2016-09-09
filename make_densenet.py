@@ -5,10 +5,10 @@ import caffe
 
 def bn_relu_conv(bottom, ks, nout, stride, pad, dropout):
     batch_norm = L.BatchNorm(bottom, in_place=False, param=[dict(lr_mult=0, decay_mult=0), dict(lr_mult=0, decay_mult=0), dict(lr_mult=0, decay_mult=0)])
-    scale = L.Scale(batch_norm, bias_term=False, in_place=True, filler=dict(value=1), bias_filler=dict(value=0))
+    scale = L.Scale(batch_norm, bias_term=True, in_place=True, filler=dict(value=1), bias_filler=dict(value=0))
     relu = L.ReLU(scale, in_place=True)
     conv = L.Convolution(relu, kernel_size=ks, stride=stride, 
-                    num_output=nout, pad=pad, bias_term=True, weight_filler=dict(type='msra'), bias_filler=dict(type='constant'))
+                    num_output=nout, pad=pad, bias_term=False, weight_filler=dict(type='msra'), bias_filler=dict(type='constant'))
     if dropout>0:
         conv = L.Dropout(conv, dropout_ratio=dropout)
     return conv
@@ -34,7 +34,7 @@ def densenet(data_file, mode='train', batch_size=64, depth=40, first_output=16, 
 
     nchannels = first_output
     model = L.Convolution(data, kernel_size=3, stride=1, num_output=nchannels,
-                        pad=1, bias_term=True, weight_filler=dict(type='msra'), bias_filler=dict(type='constant'))
+                        pad=1, bias_term=False, weight_filler=dict(type='msra'), bias_filler=dict(type='constant'))
     if dropout>0:
         model = L.Dropout(model, dropout_ratio=dropout)
 
@@ -55,7 +55,7 @@ def densenet(data_file, mode='train', batch_size=64, depth=40, first_output=16, 
 
 
     model = L.BatchNorm(model, in_place=False, param=[dict(lr_mult=0, decay_mult=0), dict(lr_mult=0, decay_mult=0), dict(lr_mult=0, decay_mult=0)])
-    model = L.Scale(model, bias_term=False, in_place=True, filler=dict(value=1), bias_filler=dict(value=0))
+    model = L.Scale(model, bias_term=True, in_place=True, filler=dict(value=1), bias_filler=dict(value=0))
     model = L.ReLU(model, in_place=True)
     model = L.Pooling(model, pool=P.Pooling.AVE, global_pooling=True)
     model = L.InnerProduct(model, num_output=10, bias_term=True, weight_filler=dict(type='xavier'), bias_filler=dict(type='constant'))
