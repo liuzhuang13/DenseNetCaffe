@@ -35,8 +35,6 @@ def densenet(data_file, mode='train', batch_size=64, depth=40, first_output=16, 
     nchannels = first_output
     model = L.Convolution(data, kernel_size=3, stride=1, num_output=nchannels,
                         pad=1, bias_term=False, weight_filler=dict(type='msra'), bias_filler=dict(type='constant'))
-    if dropout>0:
-        model = L.Dropout(model, dropout_ratio=dropout)
 
     N = (depth-4)/3
     for i in range(N):

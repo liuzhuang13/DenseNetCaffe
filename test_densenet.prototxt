@@ -32,18 +32,9 @@ layer {
   }
 }
 layer {
-  name: "Dropout1"
-  type: "Dropout"
-  bottom: "Convolution1"
-  top: "Dropout1"
-  dropout_param {
-    dropout_ratio: 0.2
-  }
-}
-layer {
   name: "BatchNorm1"
   type: "BatchNorm"
-  bottom: "Dropout1"
+  bottom: "Convolution1"
   top: "BatchNorm1"
   param {
     lr_mult: 0
@@ -99,10 +90,10 @@ layer {
   }
 }
 layer {
-  name: "Dropout2"
+  name: "Dropout1"
   type: "Dropout"
   bottom: "Convolution2"
-  top: "Dropout2"
+  top: "Dropout1"
   dropout_param {
     dropout_ratio: 0.2
   }
@@ -110,8 +101,8 @@ layer {
 layer {
   name: "Concat1"
   type: "Concat"
+  bottom: "Convolution1"
   bottom: "Dropout1"
-  bottom: "Dropout2"
   top: "Concat1"
   concat_param {
     axis: 1
@@ -176,10 +167,10 @@ layer {
   }
 }
 layer {
-  name: "Dropout3"
+  name: "Dropout2"
   type: "Dropout"
   bottom: "Convolution3"
-  top: "Dropout3"
+  top: "Dropout2"
   dropout_param {
     dropout_ratio: 0.2
   }
@@ -188,7 +179,7 @@ layer {
   name: "Concat2"
   type: "Concat"
   bottom: "Concat1"
-  bottom: "Dropout3"
+  bottom: "Dropout2"
   top: "Concat2"
   concat_param {
     axis: 1
@@ -253,10 +244,10 @@ layer {
   }
 }
 layer {
-  name: "Dropout4"
+  name: "Dropout3"
   type: "Dropout"
   bottom: "Convolution4"
-  top: "Dropout4"
+  top: "Dropout3"
   dropout_param {
     dropout_ratio: 0.2
   }
@@ -265,7 +256,7 @@ layer {
   name: "Concat3"
   type: "Concat"
   bottom: "Concat2"
-  bottom: "Dropout4"
+  bottom: "Dropout3"
   top: "Concat3"
   concat_param {
     axis: 1
@@ -330,10 +321,10 @@ layer {
   }
 }
 layer {
-  name: "Dropout5"
+  name: "Dropout4"
   type: "Dropout"
   bottom: "Convolution5"
-  top: "Dropout5"
+  top: "Dropout4"
   dropout_param {
     dropout_ratio: 0.2
   }
@@ -342,7 +333,7 @@ layer {
   name: "Concat4"
   type: "Concat"
   bottom: "Concat3"
-  bottom: "Dropout5"
+  bottom: "Dropout4"
   top: "Concat4"
   concat_param {
     axis: 1
@@ -407,10 +398,10 @@ layer {
   }
 }
 layer {
-  name: "Dropout6"
+  name: "Dropout5"
   type: "Dropout"
   bottom: "Convolution6"
-  top: "Dropout6"
+  top: "Dropout5"
   dropout_param {
     dropout_ratio: 0.2
   }
@@ -419,7 +410,7 @@ layer {
   name: "Concat5"
   type: "Concat"
   bottom: "Concat4"
-  bottom: "Dropout6"
+  bottom: "Dropout5"
   top: "Concat5"
   concat_param {
     axis: 1
@@ -484,10 +475,10 @@ layer {
   }
 }
 layer {
-  name: "Dropout7"
+  name: "Dropout6"
   type: "Dropout"
   bottom: "Convolution7"
-  top: "Dropout7"
+  top: "Dropout6"
   dropout_param {
     dropout_ratio: 0.2
   }
@@ -496,7 +487,7 @@ layer {
   name: "Concat6"
   type: "Concat"
   bottom: "Concat5"
-  bottom: "Dropout7"
+  bottom: "Dropout6"
   top: "Concat6"
   concat_param {
     axis: 1
@@ -561,10 +552,10 @@ layer {
   }
 }
 layer {
-  name: "Dropout8"
+  name: "Dropout7"
   type: "Dropout"
   bottom: "Convolution8"
-  top: "Dropout8"
+  top: "Dropout7"
   dropout_param {
     dropout_ratio: 0.2
   }
@@ -573,7 +564,7 @@ layer {
   name: "Concat7"
   type: "Concat"
   bottom: "Concat6"
-  bottom: "Dropout8"
+  bottom: "Dropout7"
   top: "Concat7"
   concat_param {
     axis: 1
@@ -638,10 +629,10 @@ layer {
   }
 }
 layer {
-  name: "Dropout9"
+  name: "Dropout8"
   type: "Dropout"
   bottom: "Convolution9"
-  top: "Dropout9"
+  top: "Dropout8"
   dropout_param {
     dropout_ratio: 0.2
   }
@@ -650,7 +641,7 @@ layer {
   name: "Concat8"
   type: "Concat"
   bottom: "Concat7"
-  bottom: "Dropout9"
+  bottom: "Dropout8"
   top: "Concat8"
   concat_param {
     axis: 1
@@ -715,10 +706,10 @@ layer {
   }
 }
 layer {
-  name: "Dropout10"
+  name: "Dropout9"
   type: "Dropout"
   bottom: "Convolution10"
-  top: "Dropout10"
+  top: "Dropout9"
   dropout_param {
     dropout_ratio: 0.2
   }
@@ -727,7 +718,7 @@ layer {
   name: "Concat9"
   type: "Concat"
   bottom: "Concat8"
-  bottom: "Dropout10"
+  bottom: "Dropout9"
   top: "Concat9"
   concat_param {
     axis: 1
@@ -792,10 +783,10 @@ layer {
   }
 }
 layer {
-  name: "Dropout11"
+  name: "Dropout10"
   type: "Dropout"
   bottom: "Convolution11"
-  top: "Dropout11"
+  top: "Dropout10"
   dropout_param {
     dropout_ratio: 0.2
   }
@@ -804,7 +795,7 @@ layer {
   name: "Concat10"
   type: "Concat"
   bottom: "Concat9"
-  bottom: "Dropout11"
+  bottom: "Dropout10"
   top: "Concat10"
   concat_param {
     axis: 1
@@ -869,10 +860,10 @@ layer {
   }
 }
 layer {
-  name: "Dropout12"
+  name: "Dropout11"
   type: "Dropout"
   bottom: "Convolution12"
-  top: "Dropout12"
+  top: "Dropout11"
   dropout_param {
     dropout_ratio: 0.2
   }
@@ -881,7 +872,7 @@ layer {
   name: "Concat11"
   type: "Concat"
   bottom: "Concat10"
-  bottom: "Dropout12"
+  bottom: "Dropout11"
   top: "Concat11"
   concat_param {
     axis: 1
@@ -946,10 +937,10 @@ layer {
   }
 }
 layer {
-  name: "Dropout13"
+  name: "Dropout12"
   type: "Dropout"
   bottom: "Convolution13"
-  top: "Dropout13"
+  top: "Dropout12"
   dropout_param {
     dropout_ratio: 0.2
   }
@@ -958,7 +949,7 @@ layer {
   name: "Concat12"
   type: "Concat"
   bottom: "Concat11"
-  bottom: "Dropout13"
+  bottom: "Dropout12"
   top: "Concat12"
   concat_param {
     axis: 1
@@ -1023,10 +1014,10 @@ layer {
   }
 }
 layer {
-  name: "Dropout14"
+  name: "Dropout13"
   type: "Dropout"
   bottom: "Convolution14"
-  top: "Dropout14"
+  top: "Dropout13"
   dropout_param {
     dropout_ratio: 0.2
   }
@@ -1034,7 +1025,7 @@ layer {
 layer {
   name: "Pooling1"
   type: "Pooling"
-  bottom: "Dropout14"
+  bottom: "Dropout13"
   top: "Pooling1"
   pooling_param {
     pool: AVE
@@ -1101,10 +1092,10 @@ layer {
   }
 }
 layer {
-  name: "Dropout15"
+  name: "Dropout14"
   type: "Dropout"
   bottom: "Convolution15"
-  top: "Dropout15"
+  top: "Dropout14"
   dropout_param {
     dropout_ratio: 0.2
   }
@@ -1113,7 +1104,7 @@ layer {
   name: "Concat13"
   type: "Concat"
   bottom: "Pooling1"
-  bottom: "Dropout15"
+  bottom: "Dropout14"
   top: "Concat13"
   concat_param {
     axis: 1
@@ -1178,10 +1169,10 @@ layer {
   }
 }
 layer {
-  name: "Dropout16"
+  name: "Dropout15"
   type: "Dropout"
   bottom: "Convolution16"
-  top: "Dropout16"
+  top: "Dropout15"
   dropout_param {
     dropout_ratio: 0.2
   }
@@ -1190,7 +1181,7 @@ layer {
   name: "Concat14"
   type: "Concat"
   bottom: "Concat13"
-  bottom: "Dropout16"
+  bottom: "Dropout15"
   top: "Concat14"
   concat_param {
     axis: 1
@@ -1255,10 +1246,10 @@ layer {
   }
 }
 layer {
-  name: "Dropout17"
+  name: "Dropout16"
   type: "Dropout"
   bottom: "Convolution17"
-  top: "Dropout17"
+  top: "Dropout16"
   dropout_param {
     dropout_ratio: 0.2
   }
@@ -1267,7 +1258,7 @@ layer {
   name: "Concat15"
   type: "Concat"
   bottom: "Concat14"
-  bottom: "Dropout17"
+  bottom: "Dropout16"
   top: "Concat15"
   concat_param {
     axis: 1
@@ -1332,10 +1323,10 @@ layer {
   }
 }
 layer {
-  name: "Dropout18"
+  name: "Dropout17"
   type: "Dropout"
   bottom: "Convolution18"
-  top: "Dropout18"
+  top: "Dropout17"
   dropout_param {
     dropout_ratio: 0.2
   }
@@ -1344,7 +1335,7 @@ layer {
   name: "Concat16"
   type: "Concat"
   bottom: "Concat15"
-  bottom: "Dropout18"
+  bottom: "Dropout17"
   top: "Concat16"
   concat_param {
     axis: 1
@@ -1409,10 +1400,10 @@ layer {
   }
 }
 layer {
-  name: "Dropout19"
+  name: "Dropout18"
   type: "Dropout"
   bottom: "Convolution19"
-  top: "Dropout19"
+  top: "Dropout18"
   dropout_param {
     dropout_ratio: 0.2
   }
@@ -1421,7 +1412,7 @@ layer {
   name: "Concat17"
   type: "Concat"
   bottom: "Concat16"
-  bottom: "Dropout19"
+  bottom: "Dropout18"
   top: "Concat17"
   concat_param {
     axis: 1
@@ -1486,10 +1477,10 @@ layer {
   }
 }
 layer {
-  name: "Dropout20"
+  name: "Dropout19"
   type: "Dropout"
   bottom: "Convolution20"
-  top: "Dropout20"
+  top: "Dropout19"
   dropout_param {
     dropout_ratio: 0.2
   }
@@ -1498,7 +1489,7 @@ layer {
   name: "Concat18"
   type: "Concat"
   bottom: "Concat17"
-  bottom: "Dropout20"
+  bottom: "Dropout19"
   top: "Concat18"
   concat_param {
     axis: 1
@@ -1563,10 +1554,10 @@ layer {
   }
 }
 layer {
-  name: "Dropout21"
+  name: "Dropout20"
   type: "Dropout"
   bottom: "Convolution21"
-  top: "Dropout21"
+  top: "Dropout20"
   dropout_param {
     dropout_ratio: 0.2
   }
@@ -1575,7 +1566,7 @@ layer {
   name: "Concat19"
   type: "Concat"
   bottom: "Concat18"
-  bottom: "Dropout21"
+  bottom: "Dropout20"
   top: "Concat19"
   concat_param {
     axis: 1
@@ -1640,10 +1631,10 @@ layer {
   }
 }
 layer {
-  name: "Dropout22"
+  name: "Dropout21"
   type: "Dropout"
   bottom: "Convolution22"
-  top: "Dropout22"
+  top: "Dropout21"
   dropout_param {
     dropout_ratio: 0.2
   }
@@ -1652,7 +1643,7 @@ layer {
   name: "Concat20"
   type: "Concat"
   bottom: "Concat19"
-  bottom: "Dropout22"
+  bottom: "Dropout21"
   top: "Concat20"
   concat_param {
     axis: 1
@@ -1717,10 +1708,10 @@ layer {
   }
 }
 layer {
-  name: "Dropout23"
+  name: "Dropout22"
   type: "Dropout"
   bottom: "Convolution23"
-  top: "Dropout23"
+  top: "Dropout22"
   dropout_param {
     dropout_ratio: 0.2
   }
@@ -1729,7 +1720,7 @@ layer {
   name: "Concat21"
   type: "Concat"
   bottom: "Concat20"
-  bottom: "Dropout23"
+  bottom: "Dropout22"
   top: "Concat21"
   concat_param {
     axis: 1
@@ -1794,10 +1785,10 @@ layer {
   }
 }
 layer {
-  name: "Dropout24"
+  name: "Dropout23"
   type: "Dropout"
   bottom: "Convolution24"
-  top: "Dropout24"
+  top: "Dropout23"
   dropout_param {
     dropout_ratio: 0.2
   }
@@ -1806,7 +1797,7 @@ layer {
   name: "Concat22"
   type: "Concat"
   bottom: "Concat21"
-  bottom: "Dropout24"
+  bottom: "Dropout23"
   top: "Concat22"
   concat_param {
     axis: 1
@@ -1871,10 +1862,10 @@ layer {
   }
 }
 layer {
-  name: "Dropout25"
+  name: "Dropout24"
   type: "Dropout"
   bottom: "Convolution25"
-  top: "Dropout25"
+  top: "Dropout24"
   dropout_param {
     dropout_ratio: 0.2
   }
@@ -1883,7 +1874,7 @@ layer {
   name: "Concat23"
   type: "Concat"
   bottom: "Concat22"
-  bottom: "Dropout25"
+  bottom: "Dropout24"
   top: "Concat23"
   concat_param {
     axis: 1
@@ -1948,10 +1939,10 @@ layer {
   }
 }
 layer {
-  name: "Dropout26"
+  name: "Dropout25"
   type: "Dropout"
   bottom: "Convolution26"
-  top: "Dropout26"
+  top: "Dropout25"
   dropout_param {
     dropout_ratio: 0.2
   }
@@ -1960,7 +1951,7 @@ layer {
   name: "Concat24"
   type: "Concat"
   bottom: "Concat23"
-  bottom: "Dropout26"
+  bottom: "Dropout25"
   top: "Concat24"
   concat_param {
     axis: 1
@@ -2025,10 +2016,10 @@ layer {
   }
 }
 layer {
-  name: "Dropout27"
+  name: "Dropout26"
   type: "Dropout"
   bottom: "Convolution27"
-  top: "Dropout27"
+  top: "Dropout26"
   dropout_param {
     dropout_ratio: 0.2
   }
@@ -2036,7 +2027,7 @@ layer {
 layer {
   name: "Pooling2"
   type: "Pooling"
-  bottom: "Dropout27"
+  bottom: "Dropout26"
   top: "Pooling2"
   pooling_param {
     pool: AVE
@@ -2103,10 +2094,10 @@ layer {
   }
 }
 layer {
-  name: "Dropout28"
+  name: "Dropout27"
   type: "Dropout"
   bottom: "Convolution28"
-  top: "Dropout28"
+  top: "Dropout27"
   dropout_param {
     dropout_ratio: 0.2
   }
@@ -2115,7 +2106,7 @@ layer {
   name: "Concat25"
   type: "Concat"
   bottom: "Pooling2"
-  bottom: "Dropout28"
+  bottom: "Dropout27"
   top: "Concat25"
   concat_param {
     axis: 1
@@ -2180,10 +2171,10 @@ layer {
   }
 }
 layer {
-  name: "Dropout29"
+  name: "Dropout28"
   type: "Dropout"
   bottom: "Convolution29"
-  top: "Dropout29"
+  top: "Dropout28"
   dropout_param {
     dropout_ratio: 0.2
   }
@@ -2192,7 +2183,7 @@ layer {
   name: "Concat26"
   type: "Concat"
   bottom: "Concat25"
-  bottom: "Dropout29"
+  bottom: "Dropout28"
   top: "Concat26"
   concat_param {
     axis: 1
@@ -2257,10 +2248,10 @@ layer {
   }
 }
 layer {
-  name: "Dropout30"
+  name: "Dropout29"
   type: "Dropout"
   bottom: "Convolution30"
-  top: "Dropout30"
+  top: "Dropout29"
   dropout_param {
     dropout_ratio: 0.2
   }
@@ -2269,7 +2260,7 @@ layer {
   name: "Concat27"
   type: "Concat"
   bottom: "Concat26"
-  bottom: "Dropout30"
+  bottom: "Dropout29"
   top: "Concat27"
   concat_param {
     axis: 1
@@ -2334,10 +2325,10 @@ layer {
   }
 }
 layer {
-  name: "Dropout31"
+  name: "Dropout30"
   type: "Dropout"
   bottom: "Convolution31"
-  top: "Dropout31"
+  top: "Dropout30"
   dropout_param {
     dropout_ratio: 0.2
   }
@@ -2346,7 +2337,7 @@ layer {
   name: "Concat28"
   type: "Concat"
   bottom: "Concat27"
-  bottom: "Dropout31"
+  bottom: "Dropout30"
   top: "Concat28"
   concat_param {
     axis: 1
@@ -2411,10 +2402,10 @@ layer {
   }
 }
 layer {
-  name: "Dropout32"
+  name: "Dropout31"
   type: "Dropout"
   bottom: "Convolution32"
-  top: "Dropout32"
+  top: "Dropout31"
   dropout_param {
     dropout_ratio: 0.2
   }
@@ -2423,7 +2414,7 @@ layer {
   name: "Concat29"
   type: "Concat"
   bottom: "Concat28"
-  bottom: "Dropout32"
+  bottom: "Dropout31"
   top: "Concat29"
   concat_param {
     axis: 1
@@ -2488,10 +2479,10 @@ layer {
   }
 }
 layer {
-  name: "Dropout33"
+  name: "Dropout32"
   type: "Dropout"
   bottom: "Convolution33"
-  top: "Dropout33"
+  top: "Dropout32"
   dropout_param {
     dropout_ratio: 0.2
   }
@@ -2500,7 +2491,7 @@ layer {
   name: "Concat30"
   type: "Concat"
   bottom: "Concat29"
-  bottom: "Dropout33"
+  bottom: "Dropout32"
   top: "Concat30"
   concat_param {
     axis: 1
@@ -2565,10 +2556,10 @@ layer {
   }
 }
 layer {
-  name: "Dropout34"
+  name: "Dropout33"
   type: "Dropout"
   bottom: "Convolution34"
-  top: "Dropout34"
+  top: "Dropout33"
   dropout_param {
     dropout_ratio: 0.2
   }
@@ -2577,7 +2568,7 @@ layer {
   name: "Concat31"
   type: "Concat"
   bottom: "Concat30"
-  bottom: "Dropout34"
+  bottom: "Dropout33"
   top: "Concat31"
   concat_param {
     axis: 1
@@ -2642,10 +2633,10 @@ layer {
   }
 }
 layer {
-  name: "Dropout35"
+  name: "Dropout34"
   type: "Dropout"
   bottom: "Convolution35"
-  top: "Dropout35"
+  top: "Dropout34"
   dropout_param {
     dropout_ratio: 0.2
   }
@@ -2654,7 +2645,7 @@ layer {
   name: "Concat32"
   type: "Concat"
   bottom: "Concat31"
-  bottom: "Dropout35"
+  bottom: "Dropout34"
   top: "Concat32"
   concat_param {
     axis: 1
@@ -2719,10 +2710,10 @@ layer {
   }
 }
 layer {
-  name: "Dropout36"
+  name: "Dropout35"
   type: "Dropout"
   bottom: "Convolution36"
-  top: "Dropout36"
+  top: "Dropout35"
   dropout_param {
     dropout_ratio: 0.2
   }
@@ -2731,7 +2722,7 @@ layer {
   name: "Concat33"
   type: "Concat"
   bottom: "Concat32"
-  bottom: "Dropout36"
+  bottom: "Dropout35"
   top: "Concat33"
   concat_param {
     axis: 1
@@ -2796,10 +2787,10 @@ layer {
   }
 }
 layer {
-  name: "Dropout37"
+  name: "Dropout36"
   type: "Dropout"
   bottom: "Convolution37"
-  top: "Dropout37"
+  top: "Dropout36"
   dropout_param {
     dropout_ratio: 0.2
   }
@@ -2808,7 +2799,7 @@ layer {
   name: "Concat34"
   type: "Concat"
   bottom: "Concat33"
-  bottom: "Dropout37"
+  bottom: "Dropout36"
   top: "Concat34"
   concat_param {
     axis: 1
@@ -2873,10 +2864,10 @@ layer {
   }
 }
 layer {
-  name: "Dropout38"
+  name: "Dropout37"
   type: "Dropout"
   bottom: "Convolution38"
-  top: "Dropout38"
+  top: "Dropout37"
   dropout_param {
     dropout_ratio: 0.2
   }
@@ -2885,7 +2876,7 @@ layer {
   name: "Concat35"
   type: "Concat"
   bottom: "Concat34"
-  bottom: "Dropout38"
+  bottom: "Dropout37"
   top: "Concat35"
   concat_param {
     axis: 1
@@ -2950,10 +2941,10 @@ layer {
   }
 }
 layer {
-  name: "Dropout39"
+  name: "Dropout38"
   type: "Dropout"
   bottom: "Convolution39"
-  top: "Dropout39"
+  top: "Dropout38"
   dropout_param {
     dropout_ratio: 0.2
   }
@@ -2962,7 +2953,7 @@ layer {
   name: "Concat36"
   type: "Concat"
   bottom: "Concat35"
-  bottom: "Dropout39"
+  bottom: "Dropout38"
   top: "Concat36"
   concat_param {
     axis: 1
