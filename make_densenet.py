@@ -79,7 +79,7 @@ def make_solver():
     s.test_interval = 800
     s.test_iter.append(200)
 
-    s.max_iter = 100000
+    s.max_iter = 230000
     s.type = 'Nesterov'
     s.display = 1
 
