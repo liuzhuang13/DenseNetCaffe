@@ -3,8 +3,13 @@ This repository contains the caffe version code for the paper [Densely Connected
 
 For a brief introduction of DenseNet, see our original [Torch implementation](https://github.com/liuzhuang13/DenseNet).
 
+##ImageNet Pretrained Models
+See our Torch implementation pages: https://github.com/liuzhuang13/DenseNet#imagenet-and-pretrained-models.
+
+
+
 ##Note
-This code is not the code we use to obtain the results in the original paper, the details (such as input preprocessing, data augmentation, training epochs) may be different. To reproduce the results reported in our paper, see our original [Torch implementation](https://github.com/liuzhuang13/DenseNet#introduction) .
+This code is not the code we use to obtain the results in the original paper, the details (such as input preprocessing, data augmentation, training epochs) may be different. To reproduce the results reported in our paper, see our original [Torch implementation](https://github.com/liuzhuang13/DenseNet#introduction).
 
 ##Results
 The default setting (L=40, k=12, dropout=0.2) in the code yields a 7.09% error rate on CIFAR10 dataset (without any data augmentation).
