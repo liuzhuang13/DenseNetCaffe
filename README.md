@@ -12,7 +12,9 @@ See http://pytorch.org/docs/torchvision/models.html?highlight=densenet for direc
 
 
 ## Note
-This code is not the code we use to obtain the results in the original paper, the details (such as input preprocessing, data augmentation, training epochs) may be different. To reproduce the results reported in our paper, see our original [Torch implementation](https://github.com/liuzhuang13/DenseNet).
+0. The models in this repo are for CIFAR datasets only (input 32x32). If you feed images with larger resolution (e.g., ImageNet images), you need to use a different downsampling strategy to keep the memory usage reasonable. See our paper or Torch code for details on ImageNet models.
+0. The code in this repo doesn't support BC-structres. However, it should be easy to modify.
+0. This code is not the code we use to obtain the results in the original paper, the details (such as input preprocessing, data augmentation, training epochs) may be different. To reproduce the results reported in our paper, see our original [Torch implementation](https://github.com/liuzhuang13/DenseNet).
 
 ## Results
 The default setting (L=40, k=12, dropout=0.2) in the code yields a 7.09% error rate on CIFAR10 dataset (without any data augmentation).
